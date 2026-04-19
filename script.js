@@ -151,20 +151,10 @@ function stepAnt(ant) {
     switch (rule.move) {
         case 'R': ant.dir = (ant.dir + 1) % 4; break;
         case 'L': ant.dir = (ant.dir + 3) % 4; break;
-        case 'U': ant.dir = (ant.dir + 2) % 4; break;
-        case 'S': break;
-        case 'N': break;
-        case '^': ant.dir = 0; break;
-        case '>': ant.dir = 1; break;
-        case 'v': ant.dir = 2; break;
-        case '<': ant.dir = 3; break;
-        case '?': ant.dir = Math.floor(Math.random() * 4); break;
     }
     
-    if (rule.move !== 'S') {
-        ant.x = (ant.x + directions[ant.dir].dx + gridCols) % gridCols;
-        ant.y = (ant.y + directions[ant.dir].dy + gridRows) % gridRows;
-    }
+    ant.x = (ant.x + directions[ant.dir].dx + gridCols) % gridCols;
+    ant.y = (ant.y + directions[ant.dir].dy + gridRows) % gridRows;
 }
 
 function runSimulationTick() {
@@ -279,6 +269,13 @@ document.getElementById('minimizeBtn').addEventListener('click', () => {
 });
 document.getElementById('maximizeBtn').addEventListener('click', () => {
     document.getElementById('controlPanel').classList.remove('minimized');
+});
+
+document.getElementById('minimizeInfoBtn').addEventListener('click', () => {
+    document.getElementById('infoPanel').classList.add('minimized');
+});
+document.getElementById('maximizeInfoBtn').addEventListener('click', () => {
+    document.getElementById('infoPanel').classList.remove('minimized');
 });
 
 document.getElementById('startStopBtn').addEventListener('click', toggleSimulation);

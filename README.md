@@ -57,6 +57,13 @@ Because of the purely deterministic rotational mechanics underlying this cellula
 
 By pre-painting massive, highly-specific structural "circuits" of black and white pixels on the lattice before releasing the ant, the ant will predictably bounce through the pathways evaluating native Boolean logic configurations to simulate **AND**, **OR**, and **NOT** logical operators. While attempting to manually paint these enormous, million-cell computational circuits by hand using your mouse in this web-app is practically impossible without a massive external file-importing tool, the HTML Canvas mathematical engine processes the fundamental physical mechanics capable of evaluating them perfectly!
 
+### Adding Custom Rules
+You are not physically limited to the default presets! The UI allows you to engineer and prototype your own algorithmic geometries natively on the fly:
+1. Locate the `Custom Rule (JS Object)` text-box in the Control Panel.
+2. Define your JavaScript dictionary block. Each integer key (`0`, `5`, etc.) mathematically represents the specific Color Index the ant is evaluating.
+3. Configure the output instructions struct: `{ writeColor: 4, move: 'R' }`. The `move` property dictates the rotation upon hitting that color: `'R'` (Right) or `'L'` (Left).
+4. Once your math is perfectly formulated, enter an arbitrary name in the `Preset Name` box below it, and click **Save Preset**! The engine will dynamically natively inject your new algorithm directly into the active dropdown and write it to LocalStorage so it persists across page reloads!
+
 ## Features
 *   **Fully Interactive Canvas**: Click and Drag to smoothly continuously pan across the virtual space. Use your mouse scroll wheel to zoom deeply in or pan vastly out! 
 *   **Click to Spawn**: Have `Click to Place Ants` checked? Point literally anywhere on the grid map to natively lock an algorithmic ant onto a track directly on established geometry!

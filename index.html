@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <canvas id="antCanvas"></canvas>
+
+    <div id="infoPanel" class="minimized">
+        <div class="panel-header">
+            <button id="minimizeInfoBtn" title="Close Info" style="font-family: inherit;">−</button>
+            <button id="maximizeInfoBtn" title="Information"
+                style="font-family: inherit; font-size: 1.5em; width: 30px; height: 30px; line-height: 10px;">i</button>
+        </div>
+        <div class="panel-content">
+            <h3 class="panel-title">What is this?</h3>
+            <p>Langton's ant is a mathematical cellular automaton. The ant reads the color on the floor, rotates, paints
+                a new color over it, and takes a step!</p>
+            <hr class="control-separator">
+            <h3 class="panel-title" style="margin-top: 15px;">Custom Rules</h3>
+            <p>Prototype your own algorithms using the <strong>Custom Rule</strong> box on the right panel!</p>
+            <p>Build an algorithmic dictionary mapping sequence. The integer <strong>Key</strong> (e.g. "0:"
+                or "4:") represents the specific color the ant currently <em>sees</em> beneath its feet. The
+                <strong>writeColor</strong> property mathematically defines what new color the ant will
+                paint over that cell!</p>
+            <p
+                style="background: #222; padding: 5px; border-radius: 3px; font-size: 0.8em; margin: 10px 0; border: 1px solid #555;">
+                {<br>
+                &nbsp;&nbsp;0: { writeColor: 4, move: 'R' },<br>
+                &nbsp;&nbsp;4: { writeColor: 0, move: 'L' }<br>
+                }
+            </p>
+            <p>Once structured, type a name and hit <strong>Save Preset</strong>. Your algorithm will lock into the
+                dropdown and live in your browser memory endlessly!</p>
+        </div>
+    </div>
 
     <div id="controlPanel" class="">
         <div class="panel-header">
@@ -19,14 +50,15 @@
         <div class="panel-content">
             <h3 class="panel-title">Langton's Ant</h3>
             <div style="text-align: center; margin-bottom: 15px; color: #ccc;">
-                Active Ants: <span id="antCountDisplay">1</span> &nbsp;|&nbsp; Steps: <span id="stepCountDisplay">0</span>
+                Active Ants: <span id="antCountDisplay">1</span> &nbsp;|&nbsp; Steps: <span
+                    id="stepCountDisplay">0</span>
             </div>
             <div class="input-container preset-container">
                 <label for="presetSelect">Presets:</label>
                 <select id="presetSelect">
                 </select>
             </div>
-            
+
             <hr class="control-separator">
             <div class="input-container">
                 <input type="checkbox" id="placeAntsCheck" checked>
@@ -41,10 +73,13 @@
                     <option value="3">Left (W)</option>
                 </select>
             </div>
-            
-            <div class="input-container custom-rule-container" style="flex-direction: column; align-items: flex-start; margin-top: 10px;">
-                <label for="customRuleArea" title="Define the rule array for placed ants">Custom Rule (JS Object):</label>
-                <textarea id="customRuleArea" rows="6" style="width: 100%; background: #222; color: #ddd; font-family: monospace; border: 1px solid #555; border-radius: 3px; padding: 4px;">{
+
+            <div class="input-container custom-rule-container"
+                style="flex-direction: column; align-items: flex-start; margin-top: 10px;">
+                <label for="customRuleArea" title="Define the rule array for placed ants">Custom Rule (JS
+                    Object):</label>
+                <textarea id="customRuleArea" rows="6"
+                    style="width: 100%; background: #222; color: #ddd; font-family: monospace; border: 1px solid #555; border-radius: 3px; padding: 4px;">{
   0: { writeColor: 1, move: 'R' },
   1: { writeColor: 0, move: 'L' }
 }</textarea>
@@ -53,7 +88,7 @@
                     <button id="savePresetBtn" style="padding: 4px 8px; font-size: 1em;">Save Preset</button>
                 </div>
             </div>
-            
+
             <hr class="control-separator">
             <div class="slider-container">
                 <label for="simSpeedSlider">Speed:</label>
@@ -73,4 +108,5 @@
     <script src="presets.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

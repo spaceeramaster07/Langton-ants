@@ -24,6 +24,51 @@ canvas {
     user-select: none;
 }
 
+#infoPanel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #323232;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 380px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+#infoPanel.minimized {
+    padding: 5px;
+    min-width: auto;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#infoPanel.minimized .panel-content {
+    display: none;
+}
+
+#infoPanel.minimized #minimizeInfoBtn {
+    display: none;
+}
+
+#infoPanel:not(.minimized) #maximizeInfoBtn {
+    display: none;
+}
+
+#infoPanel p {
+    font-size: 0.9em;
+    line-height: 1.25;
+    margin: 3px 0 8px 0;
+    color: #ccc;
+}
+
 .panel-header {
     display: flex;
     justify-content: flex-end;
