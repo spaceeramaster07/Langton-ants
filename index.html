@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langton's Ant</title>
+    <!-- Raylib style pixel font -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="antCanvas"></canvas>
+
+    <div id="controlPanel" class="">
+        <div class="panel-header">
+            <button id="minimizeBtn" title="Minimize Panel">−</button>
+            <button id="maximizeBtn" title="Maximize Panel">⚙</button>
+        </div>
+        <div class="panel-content">
+            <h3 class="panel-title">Langton's Ant</h3>
+            <div style="text-align: center; margin-bottom: 15px; color: #ccc;">
+                Active Ants: <span id="antCountDisplay">1</span> &nbsp;|&nbsp; Steps: <span id="stepCountDisplay">0</span>
+            </div>
+            <div class="input-container preset-container">
+                <label for="presetSelect">Presets:</label>
+                <select id="presetSelect">
+                </select>
+            </div>
+            
+            <hr class="control-separator">
+            <div class="input-container">
+                <input type="checkbox" id="placeAntsCheck" checked>
+                <label for="placeAntsCheck" title="Enable clicking on canvas to place ants">Click to Place Ants</label>
+            </div>
+            <div class="input-container" id="placeDirectionContainer">
+                <label for="placeDirectionSelect">Direction:</label>
+                <select id="placeDirectionSelect">
+                    <option value="0" selected>Up (N)</option>
+                    <option value="1">Right (E)</option>
+                    <option value="2">Down (S)</option>
+                    <option value="3">Left (W)</option>
+                </select>
+            </div>
+            
+            <div class="input-container custom-rule-container" style="flex-direction: column; align-items: flex-start; margin-top: 10px;">
+                <label for="customRuleArea" title="Define the rule array for placed ants">Custom Rule (JS Object):</label>
+                <textarea id="customRuleArea" rows="6" style="width: 100%; background: #222; color: #ddd; font-family: monospace; border: 1px solid #555; border-radius: 3px; padding: 4px;">{
+  0: { writeColor: 1, move: 'R' },
+  1: { writeColor: 0, move: 'L' }
+}</textarea>
+                <div style="display: flex; gap: 5px; width: 100%; margin-top: 5px;">
+                    <input type="text" id="presetNameInput" placeholder="Preset Name" style="flex-grow: 1;">
+                    <button id="savePresetBtn" style="padding: 4px 8px; font-size: 1em;">Save Preset</button>
+                </div>
+            </div>
+            
+            <hr class="control-separator">
+            <div class="slider-container">
+                <label for="simSpeedSlider">Speed:</label>
+                <input type="range" id="simSpeedSlider" min="1" max="100" value="50">
+                <span id="simSpeedValue">50</span>
+            </div>
+            <div class="button-group main-actions">
+                <button id="startStopBtn" title="Play/Pause">❚❚</button>
+                <button id="resetBtn" title="Reset Simulation">↺</button>
+                <button id="zeroAntsBtn" title="Clear all ants">Ø</button>
+                <button id="resetViewBtn" title="Center Camera">⛶</button>
+                <button id="downloadBtn" title="Download Screenshot">PNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="presets.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
