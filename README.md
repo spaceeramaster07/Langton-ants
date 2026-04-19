@@ -1,6 +1,6 @@
-# Generalized Langton's Ant Simulator
+# Langton's Ant Simulator
 
-A remarkably lightweight, high-performance web-based simulator for exploring **Langton's Ant** and its incredibly varied multi-color generalizations. Built purely with Vanilla JavaScript, HTML5 Canvas, and CSS, it features a retro Raylib-inspired interface, infinitely expanding toroidal (wrapping) borders, and native interactive camera manipulation.
+A remarkably lightweight, high-performance web-based simulator for exploring **Langton's Ant** . Built purely with Vanilla JavaScript, HTML5 Canvas, and CSS.
 
 ## What is Langton's Ant?
 Invented by Chris Langton in 1986, the standard ant is a two-dimensional universal Turing machine with an extremely simple set of rules. Operating on a square lattice of black and white cells, the ant moves one square diagonally at a time based on these instructions:
